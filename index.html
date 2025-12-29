@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>System Status</title>
+
+<style>
+html, body {
+margin: 0;
+padding: 0;
+background: transparent;
+font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.panel {
+position: relative;
+padding: 12px 18px 14px 18px; /* tighter vertical rhythm */
+color: #e5e7eb;
+background: transparent;
+}
+
+/* QUIETER left ambient rail */
+.panel::before {
+content: "";
+position: absolute;
+left: 0;
+top: 8px;
+bottom: 8px;
+width: 2px; /* slimmer */
+border-radius: 2px;
+background: linear-gradient(
+to bottom,
+rgba(34,197,94,0.55),
+rgba(34,197,94,0.25),
+rgba(34,197,94,0.08)
+);
+}
+
+.title {
+display: flex;
+align-items: center;
+font-size: 11px;
+letter-spacing: 1.4px;
+color: #9ca3af;
+margin-bottom: 10px; /* closer to rows */
+}
+
+/* HERO STATUS DOT — refined */
+.dot {
+width: 10px;
+height: 10px;
+background: #4ade80; /* slightly brighter green */
+border-radius: 50%;
+margin-right: 8px;
+box-shadow:
+0 0 6px rgba(34,197,94,0.9),
+0 0 14px rgba(34,197,94,0.75);
+animation: pulseGlow 1.3s ease-in-out infinite;
+}
+
+/* pulse is fast but subtle */
+@keyframes pulseGlow {
+0% {
+box-shadow:
+0 0 5px rgba(34,197,94,0.55),
+0 0 12px rgba(34,197,94,0.45);
+}
+50% {
+box-shadow:
+0 0 8px rgba(34,197,94,1),
+0 0 18px rgba(34,197,94,0.9);
+}
+100% {
+box-shadow:
+0 0 5px rgba(34,197,94,0.55),
+0 0 12px rgba(34,197,94,0.45);
+}
+}
+
+.row {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 14px;
+margin: 5px 0; /* even spacing */
+}
+
+.label {
+color: #9ca3af;
+}
+
+.value {
+color: #e5e7eb;
+font-weight: 500;
+letter-spacing: 0.2px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+<div class="title">
+<div class="dot"></div>
+SYSTEM STATUS
+</div>
+
+<div class="row">
+<div class="label">Mode</div>
+<div class="value">Execution</div>
+</div>
+
+<div class="row">
+<div class="label">Risk</div>
+<div class="value">Controlled</div>
+</div>
+
+<div class="row">
+<div class="label">Focus</div>
+<div class="value">Process</div>
+</div>
+</div>
+
+</body>
+</html>
